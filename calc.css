@@ -8,8 +8,8 @@ body {
 }
 
 .calculator {
-    width: 45%;
-    height: 45vh;
+    width: 40%;
+    height: 55vh;
     padding: 10px;
     border-radius: 8px;
     box-shadow: 12px 12px 20px #cbced1,
@@ -31,8 +31,8 @@ body {
 }
 .btns {
     width: 100%;
-    margin-top: 1.7em;
-    display: flex;
+    margin-top: 1.5em;
+    display: inline;
     justify-content: center;
     align-items: center;
     flex-direction: column;
