@@ -48,5 +48,54 @@ body {
     border-radius: 4px;
     box-shadow: 5px 5px 8px #00000020,
                 -5px -5px 8px #00000020,
+                /* transition: .1s; */
+}
+
+.btns .row button:hover {
+    box-shadow: inset 5px 5px 8px rgba(16, 16, 16, .1)
+                inset -5px -5px 8px #ffffff;
+                background: #ffffff;
+}
+
+#eval{
+    background: pink;
+    color: #ffffff;
+    box-shadow: inset 5px 5px 8px palevioletred
+                inset -5px -5px 8px plum
+
+}
+
+
+#eval:hover {
+    box-shadow: inset 5px 5px 8px palevioletred
+                inset -5px -5px 8px plum
+
+}
+
+#ac{
+    background: pink;
+    color: #ffffff;
+    box-shadow: inset 5px 5px 8px palevioletred
+                inset -5px -5px 8px plum
+
+}
+
+#ac:hover {
+    box-shadow: inset 5px 5px 8px palevioletred
+                inset -5px -5px 8px plum
+
+}
+
+#ce{
+    background: pink;
+    color: #ffffff;
+    box-shadow: inset 5px 5px 8px palevioletred
+                inset -5px -5px 8px plum
+
+}
+
+#ce:hover {
+    box-shadow: inset 5px 5px 8px palevioletred
+                inset -5px -5px 8px plum
 
 }
