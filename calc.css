@@ -3,13 +3,13 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    /* min-height: 50vh; */
     background: #ecf0f3;
 }
 
 .calculator {
-    width: 40%;
-    height: 55vh;
+    width: 50%;
+    /* height: 30vh; */
     padding: 10px;
     border-radius: 8px;
     box-shadow: 12px 12px 20px #cbced1,
@@ -18,7 +18,7 @@ body {
 
 .display #screen {
     width: 97%;
-    height: 70px;
+    height: 60px;
     font-size: 35px;
     outline: none;
     border: none;
@@ -32,7 +32,7 @@ body {
 .btns {
     width: 100%;
     margin-top: 1.5em;
-    display: inline;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;

@@ -1,0 +1,19 @@
+{
+  "name": "js-projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "calc.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lelana1/calculator.git"
+  },
+  "author": "Wisani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lelana1/calculator/issues"
+  },
+  "homepage": "https://github.com/Lelana1/calculator#readme"
+}

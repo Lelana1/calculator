@@ -1,65 +1,75 @@
-let screen=document.querySelector('#screen');
-let btn=document.querySelectorAll('.btn');
+const screen = document.querySelector("#screen");
+const btn = document.querySelectorAll(".btn");
 
+const ce = document.getElementById("ce");
+ce.addEventListener("click", backspace);
 
-for(item of btn){
-    item.addEventListener('click', (e)=>{
-        btntext=e.target.innerText;
+const ac = document.getElementById("ac");
+ac.addEventListener("click", reset);
 
-        if(btntext == 'x'){
-            btntext = '*';
-        }
-        if(btntext == '÷'){
-            btntext = '/';
-        }
-         screen.value +=btntext;
-    });
-}
-function sin(){
-    screen.value=Math.sin(screen.value)
+function reset() {
+  screen.value = "";
 }
 
-function cos(){
-    screen.value=Math.cos(screen.value)
-}
+for (item of btn) {
+  item.addEventListener("click", (e) => {
+    let btntext = e.target.innerText;
 
-function tan(){
-    screen.value=Math.tan(screen.value)
-}
-function log(){
-    screen.value=Math.log(screen.value)
-}
-function pow(){
-    screen.value=Math.pow(screen.value, 2)
-}
-function sqrt(){
-    screen.value=Math.sqrt(screen.value, 2)
-}
-
-function pi(){
-    screen.value=3.14159265359;
-}
-function e(){
-    screen.value=2.718;
-}
-
-function fact(){
-    let i, num, f;
-    f = 1;
-    num = screen.value;
-    for(i = 1; i <= num; i++){
-        f = f*i;
+    if (btntext == "x") {
+      btntext = "*";
     }
-    i = i - 1;
-
-    screen.value = f;
+    if (btntext == "÷") {
+      btntext = "/";
+    }
+    screen.value += btntext;
+  });
 }
 
-function backspace(){
-    screen.value = screen.value.substr(0, screen.value.length - 1)
+function sin() {
+  screen.value = Math.sin(screen.value);
 }
 
-function darkMode(){
-    let  element = document.calculator;
-    element.classList.toggle("dark-mode");
-} 
+function cos() {
+  screen.value = Math.cos(screen.value);
+}
+
+function tan() {
+  screen.value = Math.tan(screen.value);
+}
+function log() {
+  screen.value = Math.log(screen.value);
+}
+function pow() {
+  screen.value = Math.pow(screen.value, 2);
+}
+function sqrt() {
+  screen.value = Math.sqrt(screen.value, 2);
+}
+
+function pi() {
+  screen.value = Math.PI(screen.value);
+}
+function eulers() {
+  screen.value = Math.E(screen.value);
+}
+
+function factorial() {
+  let factorialNumber = 1,
+    num = screen.value;
+  if (num < 0) {
+    screen.value = undefined;
+  } else {
+    for (let i = 1; i <= num; i++) {
+      factorialNumber = factorialNumber * i;
+    }
+    screen.value = factorialNumber;
+  }
+}
+function backspace() {
+  screen.value = screen.value.substr(0, screen.value.length - 1);
+}
+
+function darkMode() {
+  let element = document.calculator;
+  element.classList.toggle("dark-mode");
+}
