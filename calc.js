@@ -58,3 +58,8 @@ function fact(){
 function backspace(){
     screen.value = screen.value.substr(0, screen.value.length - 1)
 }
+
+function darkMode(){
+    let  element = document.calculator;
+    element.classList.toggle("dark-mode");
+} 
