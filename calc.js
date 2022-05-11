@@ -11,6 +11,10 @@ function reset() {
   screen.value = "";
 }
 
+function perc (){
+  window.Function(screen.value * 100)
+}
+
 for (item of btn) {
   item.addEventListener("click", (e) => {
     let btntext = e.target.innerText;
