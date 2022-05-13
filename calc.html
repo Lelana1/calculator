@@ -6,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scientific Calculator</title>
     <link rel="stylesheet" href="calc.css">
-    <script async src="calc.js"></script>
+    <script src="calc.js" defer></script>
 </head>
 <body>
     <article class="calculator">
         <section class="display">
-            <input id="screen" type="text" placeholder="0">
+        <section data-previous-operand class="previous-operand"></section>
+        <section data-current-operand class="current-operand"></section>
+        <input id="screen" type="text" placeholder="0">
         </section>
 
-
-        <section class="btns">
+        <section class="buttons">
             <section class="row">
-                <button id="ce" >CE</button>
+                <button id="delete" >CE</button>
                 <button id="fact">x!</button>
                 <button id="ln">ln</button>
-                <button class="btn">(</button>
-                <button class="btn">)</button>
-                <button id="perc" >%</button>
+                <button class="data-operation">(</button>
+                <button class="data-operation">)</button>
+                <button class="data-operation" >%</button>
                 <button id="ac">AC</button>
             </section>
 
@@ -30,30 +31,30 @@
                 <button id="rad">Rad</button>
                 <button id="deg">deg</button>
                 <button id="pie">π</button>
-                <button class="btn">7</button>
-                <button class="btn">8</button>
-                <button class="btn">9</button>
-                <button class="btn">÷</button>
+                <button class="data-number">7</button>
+                <button class="data-number">8</button>
+                <button class="data-number">9</button>
+                <button class="data-operation">÷</button>
             </section>
 
             <section class="row">
                 <button id="sine">sin</button>
                 <button id="logart">log</button>
                 <button id="cub">&#8731;</button>
-                <button class="btn">4</button>
-                <button class="btn">5</button>
-                <button class="btn">6</button>
-                <button class="btn">*</button>
+                <button class="data-number">4</button>
+                <button class="data-number">5</button>
+                <button class="data-number">6</button>
+                <button class="data-number">*</button>
             </section>
 
             <section class="row">
                 <button id="cosine">cos</button>
                 <button id="tane">tan</button>
                 <button id="sqroot">√</button>
-                <button class="btn">1</button>
-                <button class="btn">2</button>
-                <button class="btn">3</button>
-                <button class="btn">-</button>
+                <button class="data-number">1</button>
+                <button class="data-number">2</button>
+                <button class="data-number">3</button>
+                <button class="data-operation">-</button>
                 
                 
             </section>
@@ -61,12 +62,12 @@
             <section class="row">
                 <button id="eulers">e</button>
                 <button id="pow">x<sup>2</sup></button>
-                <button class="btn">0</button>
-                <button class="btn">.</button>
+                <button class="data-number">0</button>
+                <button class="data-number">.</button>
                 <!-- <button id="equal" onclick="screen.value=eval(screen.value)">=</button> -->
-                <!-- <button id="eval">=</button> -->
-                <button class="btn">+</button>
-                <button class="btn">ANS</button>
+                <button class="eval">=</button>
+                <button class="data-operation">+</button>
+                <button class="button">ANS</button>
 
             </section>
         </section>

@@ -44,7 +44,7 @@
     box-shadow: inset 8px 8px 8px #cbced1,
                 inset -8px -8px 8px #ffffff;
 }
-.btns {
+.buttons {
     width: 100%;
     margin-top: 1.5em;
     margin-bottom: 1.3em;
@@ -59,7 +59,7 @@
     color: white;
   } */
 
-.btns .row button{
+.buttons .row button{
     width: 90px;
     height: 30px;
     font-size: 16px;
@@ -70,7 +70,7 @@
     
 }
 
-.btns .row button:hover {
+.buttons .row button:hover {
     box-shadow: inset 5px 5px 8px #c1bbdd,
                 inset -5px -5px 8px #c1bbdd,;
                 background: #ffffff;
