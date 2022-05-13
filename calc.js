@@ -168,36 +168,36 @@ function darkMode() {
 //   screen.value = SumValue;
 // }
 
-function trigonometricFunctions() {
-  switch (trig) {
-    case "sin":
-      Math.sin(display.value);
+// function trigonometricFunctions() {
+//   switch (trig) {
+//     case "sin":
+//       Math.sin(display.value);
 
-      break;
+//       break;
 
-    case "cos":
-      Math.cos(display.value);
+//     case "cos":
+//       Math.cos(display.value);
 
-      break;
+//       break;
 
-    case "tan":
-      Math.tan(display.value);
+//     case "tan":
+//       Math.tan(display.value);
 
-      break;
+//       break;
 
-    case "log":
-      Math.log10(display.value);
+//     case "log":
+//       Math.log10(display.value);
 
-      break;
+//       break;
 
-    case "lan":
-      Math.log(display.value);
+//     case "lan":
+//       Math.log(display.value);
 
-      break;
-    default: return;
-      break;
-  }
-}
+//       break;
+//     default: return;
+//       break;
+//   }
+// }
 
 function bodmas(){
 
@@ -208,7 +208,7 @@ function bodmas(){
       return SyntaxError;
 
     } else if(equation.chatAt(index -1 == "(") && equation.chatAt(index + 1 == ")")){
-        
+
     }
     }
 
