@@ -11,19 +11,17 @@
 <body>
     <article class="calculator">
         <section class="display">
-        <section data-previous-operand class="previous-operand"></section>
-        <section data-current-operand class="current-operand"></section>
-        <input id="screen" type="text" placeholder="0">
+        <input id="screen" type="text" placeholder="0" value="">
         </section>
 
         <section class="buttons">
             <section class="row">
-                <button id="delete" >CE</button>
+                <button id="ce" >CE</button>
                 <button id="fact">x!</button>
                 <button id="ln">ln</button>
                 <button class="data-operation">(</button>
                 <button class="data-operation">)</button>
-                <button class="data-operation" >%</button>
+                <button id="perc" class="data-operation" >%</button>
                 <button id="ac">AC</button>
             </section>
 
@@ -65,7 +63,7 @@
                 <button class="data-number">0</button>
                 <button class="data-number">.</button>
                 <!-- <button id="equal" onclick="screen.value=eval(screen.value)">=</button> -->
-                <button class="eval">=</button>
+                <button class="eqal">=</button>
                 <button class="data-operation">+</button>
                 <button class="button">ANS</button>
 
