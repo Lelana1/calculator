@@ -76,7 +76,7 @@
                 background: #ffffff;
 }
 
-#eval{
+#equal{
     background: var(--pink);
     color: #ffffff;
     box-shadow: inset 5px 5px 8px var(--darkpink)
@@ -85,7 +85,7 @@
 }
 
 
-#eval:hover {
+#equal:hover {
     box-shadow: inset 5px 5px 8px 
                 inset -5px -5px 8px var(--plum)
 

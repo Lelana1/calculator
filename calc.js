@@ -94,7 +94,7 @@ function display(number) {
     displayValue.push(number);
   }
 
-  display.value = getDisplayNumber();
+  screen.value = getDisplayNumber();
 }
 
 
