@@ -42,8 +42,6 @@ function backspace() {
 // const equal = document.getElementById("equal");
 //  equal.addEventListener("click", calculate);
 
-
-
 // const perc = document.getElementById("perc");
 // perc.addEventListener("click", percentage);
 
@@ -58,10 +56,9 @@ cub.addEventListener("click", Cubic);
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    screen.value += button.innerHTML
+    screen.value += button.innerHTML;
   });
 });
-
 
 const operations = {
   sin: (x) => Math.sin(x),
@@ -72,10 +69,14 @@ const operations = {
   euler: (x) => Math.E(x),
 };
 
-operations["+"] = (first, second) => first + second;
-operations["-"] = (first, second) => first - second;
-operations["/"] = (first, second) => first / second;
-operations["*"] = (first, second) => first * second;
+operations["+"] = (numbers) =>
+  numbers.reduce((accumulated, current) => accumulated + current, 0); //
+operations["-"] = (numbers) =>
+numbers.reduce((accumulated, current) => accumulated - current, 0);
+operations["/"] = (numbers) =>
+numbers.reduce((accumulated, current) => accumulated / current);
+operations["*"] = (numbers) =>
+  numbers.reduce((accumulated, current) => accumulated * current, 1);
 operations["%"] = (first, second) => (first / second) * 100 + "%";
 
 console.log("hello World", operations, operations["sin"](2));
@@ -97,7 +98,6 @@ function display(number) {
   screen.value = getDisplayNumber();
 }
 
-
 // operations.forEach((operation) => {
 //   button.addEventListener("click", () => {
 //     screen.value += button.innerHTML
@@ -109,14 +109,45 @@ perc.addEventListener("click", () => (screen.value += "%"));
 const tane = document.getElementById("tane");
 tane.addEventListener("click", () => (screen.value += `tan(`)); //
 
-  function squared() {
-    screen.value = Math.pow(screen.value, 2);
-  }
+function squared() {
+  screen.value = Math.pow(screen.value, 2);
+}
 
-  function Cubic() {
-    screen.value = Math.cbrt(screen.value, 3);
-  }
+function Cubic() {
+  screen.value = Math.cbrt(screen.value, 3);
+}
 
-  function sqrt() {
-    screen.value = Math.sqrt(screen.value, 2);
+function sqrt() {
+  screen.value = Math.sqrt(screen.value, 2);
+}
+
+// function equate(e) {
+  // solve simple calulator first / adding multiple numbers
+  // for loop
+  // input[i]
+  const equal = document.getElementById("equal");
+  equal.addEventListener("click", () => {
+    let numbers = screen.value.split("*");
+   // console.log(operations["*"](['1', '2', '3']));
+
+    if (screen.value.includes("*")) {
+      screen.value = operations["*"](numbers);
+    }
+    else if (screen.value.includes("+")) {
+      screen.value = operations["+"](numbers);
+    }
+    else if (screen.value.includes("-")) {
+    screen.value = operations["-"](numbers);
   }
+  else if (screen.value.includes("/")) {
+    screen.value = operations["/"](numbers);
+  }
+  });
+//}
+
+// console.log(
+//   ["1", "2", "3", "4"].reduce(
+//     (accumulated, current) => accumulated * +current,
+//     1
+//   )
+// );
