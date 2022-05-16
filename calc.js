@@ -5,8 +5,8 @@ const screen = document.getElementById("screen");
 const ce = document.getElementById("ce");
 ce.addEventListener("click", backspace);
 
-// const ac = document.getElementById("ac");
-// ac.addEventListener("click", reset);
+const ac = document.getElementById("ac");
+ac.addEventListener("click", reset);
 
 // const sine = document.getElementById("sine");
 // sine.addEventListener("click", sin);
@@ -60,6 +60,12 @@ numberButtons.forEach((button) => {
   });
 });
 
+operationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    screen.value += button.innerHTML
+  });
+});
+
 const operations = {
   sin: (x) => Math.sin(x),
   cos: (x) => Math.cos(x),
@@ -70,39 +76,33 @@ const operations = {
 };
 
 operations["+"] = (numbers) =>
-  numbers.reduce((accumulated, current) => accumulated + current, 0); //
+  numbers.reduce((accumulated, current) => accumulated + current); //
 operations["-"] = (numbers) =>
 numbers.reduce((accumulated, current) => accumulated - current, 0);
 operations["/"] = (numbers) =>
-numbers.reduce((accumulated, current) => accumulated / current);
+numbers.reduce((accumulated, current) => accumulated / current, 0);
 operations["*"] = (numbers) =>
-  numbers.reduce((accumulated, current) => accumulated * current, 1);
+numbers.reduce((accumulated, current) => accumulated * current, 1);
+
 operations["%"] = (first, second) => (first / second) * 100 + "%";
 
-console.log("hello World", operations, operations["sin"](2));
+// const displayValue = [];
+// const getDisplayNumber = () =>
+//   displayValue.reduce((accumulated, current) => accumulated + "" + current, "");
 
-const displayValue = [];
-const getDisplayNumber = () =>
-  displayValue.reduce((accumulated, current) => accumulated + "" + current, "");
+// function display(number) {
+//   const last = displayValue.pop();
 
-function display(number) {
-  const last = displayValue.pop();
+//   if (!isNaN(last) && !isNaN(number)) {
+//     displayValue.push(`${last}${number}`);
+//   } else {
+//     displayValue.push(last);
+//     displayValue.push(number);
+//   }
 
-  if (!isNaN(last) && !isNaN(number)) {
-    displayValue.push(`${last}${number}`);
-  } else {
-    displayValue.push(last);
-    displayValue.push(number);
-  }
+//   screen.value = getDisplayNumber();
+// }
 
-  screen.value = getDisplayNumber();
-}
-
-// operations.forEach((operation) => {
-//   button.addEventListener("click", () => {
-//     screen.value += button.innerHTML
-//   });
-// });
 const perc = document.getElementById("perc");
 perc.addEventListener("click", () => (screen.value += "%"));
 
@@ -133,21 +133,14 @@ function sqrt() {
     if (screen.value.includes("*")) {
       screen.value = operations["*"](numbers);
     }
-    else if (screen.value.includes("+")) {
+    if (screen.value.includes("+")) {
       screen.value = operations["+"](numbers);
     }
-    else if (screen.value.includes("-")) {
+    if (screen.value.includes("-")) {
     screen.value = operations["-"](numbers);
   }
-  else if (screen.value.includes("/")) {
+  if (screen.value.includes("÷")) {
     screen.value = operations["/"](numbers);
   }
   });
-//}
 
-// console.log(
-//   ["1", "2", "3", "4"].reduce(
-//     (accumulated, current) => accumulated * +current,
-//     1
-//   )
-// );
