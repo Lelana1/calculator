@@ -122,9 +122,11 @@ function sqrt() {
   // solve simple calulator first / adding multiple numbers
   // for loop
   // input[i]
+  let op = "+";
   const equal = document.getElementById("equal");
   equal.addEventListener("click", () => {
-    let numbers = screen.value.split("*");
+    let numbers = screen.value.split(`${op}`);
+    // console.log(parseInt(numbers));
    // console.log(operations["*"](['1', '2', '3']));
 
     if (screen.value.includes("*")) {
@@ -140,4 +142,11 @@ function sqrt() {
     screen.value = operations["/"](numbers);
   }
   });
+
+  // function equate(numbers){
+  //   return numbers.forEach((operations)) => {
+  //     screen.value += operationButtons
+  // });
+  //   })
+
 
