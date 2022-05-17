@@ -102,7 +102,7 @@ const perc = document.getElementById("perc");
 perc.addEventListener("click", () => (screen.value += "%"));
 
 const tane = document.getElementById("tane");
-tane.addEventListener("click", () => (screen.value += `tan(`)); //
+tane.addEventListener("click", () => (screen.value += `tan() `)); //
 
 
 
