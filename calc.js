@@ -1,3 +1,6 @@
+window.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM fully loaded and parsed');
+});
 const numberButtons = document.querySelectorAll(".data-number");
 const operationButtons = document.querySelectorAll(".data-operation");
 const screen = document.getElementById("screen");
@@ -23,145 +26,77 @@ const operations = {
   euler: (x) => Math.E(x),
 };
 
-operations["+"] = (numbers) =>
-  numbers.reduce((accumulated, current) => accumulated + current);
-   //
-operations["-"] = (...numbers) =>
-numbers.reduce((accumulated, current) => accumulated - current, 1);
+// operations["+"] = (numbers) =>
+//   numbers.reduce((accumulated, current) => accumulated + current);
+//    //
+// operations["-"] = (...numbers) =>
+// numbers.reduce((accumulated, current) => accumulated - current, 1);
 
-operations["/"] = (numbers) =>
-numbers.reduce((accumulated, current) => accumulated / current, 0);
+// operations["/"] = (numbers) =>
+// numbers.reduce((accumulated, current) => accumulated / current, 0);
 
-operations["*"] = (numbers) =>
-numbers.reduce((accumulated, current) => accumulated * current, 1);
+// operations["*"] = (numbers) =>
+// numbers.reduce((accumulated, current) => accumulated * current, 1);
 
 //operations["%"] = (first, second) => (first / second) * 100 + "%";
 
+operations["*"] = (first, second) => first * second;
+operations["+"] = (first, second) => first + second;
+operations["-"] = (first, second) => first - second;
+operations["/"] = (first, second) => first / second;
 
-const ce = document.getElementById("ce");
-ce.addEventListener("click", backspace);
+const userInputs = [];
+const getDisplayNumber = () => userInputs.reduce((acc, curr) => acc + '' + curr, '')
 
-const ac = document.getElementById("ac");
-ac.addEventListener("click", reset);
-
-const sine = document.getElementById("sine");
-sine.addEventListener("click", operations.sin);
-
-const cosine = document.getElementById("cosine");
-cosine.addEventListener("click", operations.cos);
-
-// const rad = document.getElementById("rad");
-// rad.addEventListener("click", radi);
-
-const ln = document.getElementById("ln");
-ln.addEventListener("click", operations.lan);
-
-// const pie = document.getElementById("pie");
-// pie.addEventListener("click", pi);
-
-const logart = document.getElementById("logart");
-logart.addEventListener("click", operations.log);
-
-const sqroot = document.getElementById("sqroot");
-sqroot.addEventListener("click", sqrt);
-
-const eulers = document.getElementById("eulers");
-eulers.addEventListener("click", operations.euler);
-
-
-function reset() {
-  screen.value = "";
+function display(disValue) {
+  const lastInput = userInputs.pop();
+  if(!isNaN(lastInput) && !isNaN(disValue)){
+    userInputs.push(`${lastInput}${disValue}`)
+  }else {
+    userInputs.push(lastInput)
+    userInputs.push(disValue)
+  }
+  //const screen = document.getElementById("screen");
+  screen.value = getDisplayNumber();
 }
 
-function backspace() {
-  screen.value = screen.value.substring(0, screen.value.length - 1);
-}
+  function equate(){
+    userInputs.reduce((acc, curr, i, inputs) =>{
 
-// const equal = document.getElementById("equal");
-//  equal.addEventListener("click", calculate);
+    }, 0)
+    const x = screen.value
+    screen.value = calculate ();
+    }
 
-// const perc = document.getElementById("perc");
-// perc.addEventListener("click", percentage);
+    function calculate (e) {
+//   solve simple calulator first / adding multiple numbers
+//   for loop
+//   input[i]
+//  []userinputs -store in an array
 
-const pow = document.getElementById("pow");
-pow.addEventListener("click", squared);
-
-const cub = document.getElementById("cub");
-cub.addEventListener("click", Cubic);
-
-// const fact = document.getElementById("fact");
-// fact.addEventListener("click", factorial);
-
-;
-
-// const displayValue = [];
-// const getDisplayNumber = () =>
-//   displayValue.reduce((accumulated, current) => accumulated + "" + current, "");
-
-const perc = document.getElementById("perc");
-perc.addEventListener("click", () => (screen.value += "%"));
-
-const tane = document.getElementById("tane");
-tane.addEventListener("click", () => (screen.value += `tan() `)); //
-
-
-
-function squared() {
-  screen.value = Math.pow(screen.value, 2);
-}
-
-function Cubic() {
-  screen.value = Math.cbrt(screen.value, 3);
-}
-
-function sqrt() {
-  screen.value = Math.sqrt(screen.value, 2);
-}
-
-//function equate(e) {
-  // solve simple calulator first / adding multiple numbers
-  // for loop
-  // input[i]
- // []userinputs -store in an array
-  let op = "*";
+let op = ['*']
+ 
   let equal = document.getElementById("equal");
   equal.addEventListener("click", () => {
-    let numbers = screen.value.split(`${op}`); //can i
-    console.log(numbers)
-  //  // console.log(operations["*"](['1', '2', '3']));
+    
+    let userInputs = screen.value.split(`${op}`);
+    console.log(userInputs)
 
-//    operations.forEach(numbers => {
-
-//     if(operations.key === '+') {
-//       screen.value = operations["+"](numbers)
-//     } else if(operations.key === '*') {
-//       screen.value = operations["*"](numbers)
-//     } else if(operations.key === '-') {
-//       screen.value = operations["-"](numbers)
-//  }   else (operations.key === '/') 
-//  screen.value = operations["/"](numbers)
- 
-// });
-
-    if (screen.value.includes("*")) {
-    screen.value = operations["*"](numbers);
+       if (userInputs.includes("*")) {
+    screen.value = operations["*"](userInputs);
     }
-    if (screen.value.includes("+")) {
+    if (userInputs.includes("+")) {
       screen.value = operations["+"](numbers);
     }
-    if (screen.value.includes("-")) {
-    screen.value = operations["-"](numbers);
+    if (userInputs.includes("-")) {
+      userInputs = operations["-"](numbers);
   }
-    if (screen.value.includes("÷")) {
+    if (userInputs.includes("÷")) {
     screen.value = operations["/"](numbers);
   }
   });
+   
+  }
 
-// equate()
-//   // function equate(numbers){
-//   //   return numbers.forEach((operations)) => {
-//   //     screen.value += operationButtons
-//   // });
-//   //   })
 
-//}
+ 
