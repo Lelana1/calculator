@@ -1,13 +1,16 @@
 window.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded and parsed');
 });
-const numberButtons = document.querySelectorAll(".data-number");
+
+const numberButtons = [...document.getElementsByClassName("data-number")];
 const operationButtons = document.querySelectorAll(".data-operation");
 const screen = document.getElementById("screen");
+//console.log(numberButtons);
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    screen.value += button.innerHTML;
+    console.log("userInputs");
+     display(button.innerHTML);
   });
 });
 
@@ -26,6 +29,11 @@ const operations = {
   euler: (x) => Math.E(x),
 };
 
+operations["*"] = (first, second) => first * second;
+operations["+"] = (first, second) => first + second;
+operations["-"] = (first, second) => first - second;
+operations["/"] = (first, second) => first / second;
+
 // operations["+"] = (numbers) =>
 //   numbers.reduce((accumulated, current) => accumulated + current);
 //    //
@@ -40,41 +48,42 @@ const operations = {
 
 //operations["%"] = (first, second) => (first / second) * 100 + "%";
 
-operations["*"] = (first, second) => first * second;
-operations["+"] = (first, second) => first + second;
-operations["-"] = (first, second) => first - second;
-operations["/"] = (first, second) => first / second;
-
 const userInputs = [];
 const getDisplayNumber = () => userInputs.reduce((acc, curr) => acc + '' + curr, '')
 
 function display(disValue) {
-  const lastInput = userInputs.pop();
+   const lastInput = '';
   if(!isNaN(lastInput) && !isNaN(disValue)){
     userInputs.push(`${lastInput}${disValue}`)
   }else {
     userInputs.push(lastInput)
     userInputs.push(disValue)
   }
+  console.log(userInputs);
   //const screen = document.getElementById("screen");
   screen.value = getDisplayNumber();
 }
 
   function equate(){
-    userInputs.reduce((acc, curr, i, inputs) =>{
+    let userInputs;
+    let left= '',  right = '',  op;
 
-    }, 0)
-    const x = screen.value
-    screen.value = calculate ();
-    }
+    for(let i = 0; i< userInputs.length; i++){
+      if(left == ''){
+        left = userInputs[i]
+      } else if(right = " " )
+      right = userInputs[i]
+       else if(op = "" ){
+      right = userInputs[i]
+      } else;
+      }
+      // recurse and check right and operator,
+      //check if both are assigned if not, recurse
 
-    function calculate (e) {
-//   solve simple calulator first / adding multiple numbers
-//   for loop
-//   input[i]
-//  []userinputs -store in an array
+    function calculate () {
+//   solve simple calulator first / adding multiple numbers //   for loop//   input[i] //  []userinputs -store in an array
 
-let op = ['*']
+  let op = ['*']
  
   let equal = document.getElementById("equal");
   equal.addEventListener("click", () => {
@@ -100,3 +109,4 @@ let op = ['*']
 
 
  
+  }
