@@ -27,7 +27,7 @@ operations["+"] = (numbers) =>
   numbers.reduce((accumulated, current) => accumulated + current);
    //
 operations["-"] = (...numbers) =>
-numbers.reduce((accumulated, current) => accumulated - current, 0);
+numbers.reduce((accumulated, current) => accumulated - current, 1);
 
 operations["/"] = (numbers) =>
 numbers.reduce((accumulated, current) => accumulated / current, 0);
@@ -35,7 +35,7 @@ numbers.reduce((accumulated, current) => accumulated / current, 0);
 operations["*"] = (numbers) =>
 numbers.reduce((accumulated, current) => accumulated * current, 1);
 
-operations["%"] = (first, second) => (first / second) * 100 + "%";
+//operations["%"] = (first, second) => (first / second) * 100 + "%";
 
 
 const ce = document.getElementById("ce");
@@ -118,19 +118,33 @@ function sqrt() {
   screen.value = Math.sqrt(screen.value, 2);
 }
 
-// function equate(e) {
+//function equate(e) {
   // solve simple calulator first / adding multiple numbers
   // for loop
   // input[i]
-  let op = "+";
-  const equal = document.getElementById("equal");
+ // []userinputs -store in an array
+  let op = "*";
+  let equal = document.getElementById("equal");
   equal.addEventListener("click", () => {
-    let numbers = screen.value.split(`${op}`);
-    // console.log(parseInt(numbers));
-   // console.log(operations["*"](['1', '2', '3']));
+    let numbers = screen.value.split(`${op}`); //can i
+    console.log(numbers)
+  //  // console.log(operations["*"](['1', '2', '3']));
+
+//    operations.forEach(numbers => {
+
+//     if(operations.key === '+') {
+//       screen.value = operations["+"](numbers)
+//     } else if(operations.key === '*') {
+//       screen.value = operations["*"](numbers)
+//     } else if(operations.key === '-') {
+//       screen.value = operations["-"](numbers)
+//  }   else (operations.key === '/') 
+//  screen.value = operations["/"](numbers)
+ 
+// });
 
     if (screen.value.includes("*")) {
-      screen.value = operations["*"](numbers);
+    screen.value = operations["*"](numbers);
     }
     if (screen.value.includes("+")) {
       screen.value = operations["+"](numbers);
@@ -143,10 +157,11 @@ function sqrt() {
   }
   });
 
-  // function equate(numbers){
-  //   return numbers.forEach((operations)) => {
-  //     screen.value += operationButtons
-  // });
-  //   })
+// equate()
+//   // function equate(numbers){
+//   //   return numbers.forEach((operations)) => {
+//   //     screen.value += operationButtons
+//   // });
+//   //   })
 
-
+//}
