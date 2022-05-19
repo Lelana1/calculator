@@ -1,22 +1,21 @@
-window.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM fully loaded and parsed');
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed");
 });
 
 const numberButtons = [...document.getElementsByClassName("data-number")];
 const operationButtons = document.querySelectorAll(".data-operation");
 const screen = document.getElementById("screen");
-//console.log(numberButtons);
 
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     console.log("userInputs");
-     display(button.innerHTML);
+    display(button.innerHTML);
   });
 });
 
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    screen.value += button.innerHTML
+    display(button.innerHTML);
   });
 });
 
@@ -29,84 +28,70 @@ const operations = {
   euler: (x) => Math.E(x),
 };
 
-operations["*"] = (first, second) => first * second;
-operations["+"] = (first, second) => first + second;
-operations["-"] = (first, second) => first - second;
-operations["/"] = (first, second) => first / second;
+// operations["*"] = (first, second) => first * second;
+// operations["+"] = (first, second) => first + second;
+// operations["-"] = (first, second) => first - second;
+// operations["/"] = (first, second) => first / second;
 
 // operations["+"] = (numbers) =>
 //   numbers.reduce((accumulated, current) => accumulated + current);
-//    //
-// operations["-"] = (...numbers) =>
-// numbers.reduce((accumulated, current) => accumulated - current, 1);
+
+// operations["-"] = (numbers) =>
+//   numbers.reduce((accumulated, current) => accumulated - current, 1);
 
 // operations["/"] = (numbers) =>
-// numbers.reduce((accumulated, current) => accumulated / current, 0);
+//   numbers.reduce((accumulated, current) => accumulated / current, 0);
 
 // operations["*"] = (numbers) =>
-// numbers.reduce((accumulated, current) => accumulated * current, 1);
+//   numbers.reduce((accumulated, current) => accumulated * current, 1);
 
 //operations["%"] = (first, second) => (first / second) * 100 + "%";
 
-const userInputs = [];
-const getDisplayNumber = () => userInputs.reduce((acc, curr) => acc + '' + curr, '')
+const userInputs = "";
+const getDisplayNumber = () =>
+  userInputs.reduce((acc, curr) => acc + "" + curr, "");
 
 function display(disValue) {
-   const lastInput = '';
-  if(!isNaN(lastInput) && !isNaN(disValue)){
-    userInputs.push(`${lastInput}${disValue}`)
-  }else {
-    userInputs.push(lastInput)
-    userInputs.push(disValue)
-  }
+  //  let lastInput = '';
+  // if(!isNaN(lastInput) && !isNaN(disValue)){
+  //   userInputs.push(`${lastInput}${disValue}`) // can be turned into a ternary operator
+  // }else {
+  //   userInputs.push(lastInput)
+  //   userInputs.push(disValue)
+  // }
   console.log(userInputs);
   //const screen = document.getElementById("screen");
-  screen.value = getDisplayNumber();
+  screen.value += disValue;
 }
 
-  function equate(){
-    let userInputs;
-    let left= '',  right = '',  op;
+// function equate(){
+//   let userInputs;
+//   let left= '',  right = '',  op;
 
-    for(let i = 0; i< userInputs.length; i++){
-      if(left == ''){
-        left = userInputs[i]
-      } else if(right = " " )
-      right = userInputs[i]
-       else if(op = "" ){
-      right = userInputs[i]
-      } else;
-      }
-      // recurse and check right and operator,
-      //check if both are assigned if not, recurse
 
-    function calculate () {
-//   solve simple calulator first / adding multiple numbers //   for loop//   input[i] //  []userinputs -store in an array
-
-  let op = ['*']
- 
-  let equal = document.getElementById("equal");
-  equal.addEventListener("click", () => {
-    
-    let userInputs = screen.value.split(`${op}`);
-    console.log(userInputs)
-
-       if (userInputs.includes("*")) {
-    screen.value = operations["*"](userInputs);
+function equate(str) {
+  const opPattern = /[\+\-\*\/]/g;
+  const numbers = /\-?\d+/g;
+  const opsFromString = str.match(opPattern);
+  const arrayNumbers = str.match(numbers).map((x) => +x);
+  let ans = 0;
+  for (let i = 0; i < opsFromString.length; i++) {
+    if (opsFromString[i] == "/") {
+      ans = arrayNumbers[i] / arrayNumbers[i + 1];
+      arrayNumbers.splice(i, 2, ans);
+      opsFromString.splice(i, 1);
     }
-    if (userInputs.includes("+")) {
-      screen.value = operations["+"](numbers);
+    if (opsFromString[i] == "*") {
+      ans = arrayNumbers[i] * arrayNumbers[i + 1];
+      arrayNumbers.splice(i, 2, ans);
+      opsFromString.splice(i, 1);
     }
-    if (userInputs.includes("-")) {
-      userInputs = operations["-"](numbers);
-  }
-    if (userInputs.includes("÷")) {
-    screen.value = operations["/"](numbers);
-  }
-  });
-   
   }
 
+  return arrayNumbers.reduce((acc, curr) => acc + curr);
+}
 
- 
-  }
+  // let equal = document.getElementById("equal");
+  // equal.addEventListener("click", (equate()) => {
+  //   screen.value =
+  // });
