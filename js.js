@@ -1,4 +1,4 @@
-let str = "4*3+5*5-2/1-10*4-10-15";
+//let str = "4*3+5*5-2/1-10*4-10-15";
 function equate(str) {
   const opPattern = /[\+\-\*\/]/g;
   const numbers = /\-?\d+/g;
@@ -20,3 +20,4 @@ function equate(str) {
 
   return arrayNumbers.reduce((acc, curr) => acc + curr);
 }
+console.log(equate("4*3+5*5-2/1-10*4-10-15"))
